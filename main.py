@@ -177,7 +177,6 @@ interview_task = Task(
     """,
     agent = interviewer_agent,
     context = [questions_task],
-    output_file = f"reports/{company} interview feedback.md"
 )
 
 crew = Crew(

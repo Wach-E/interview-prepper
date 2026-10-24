@@ -19,13 +19,12 @@ flowchart LR
     you(("You"))
 
     input --> t1 & t2
-    t1 & t2 -->|context| t3
+    t1 & t2 --->|context| t3
     t3 -->|questions| t4
     t4 <-->|Ask Candidate| you
 
     t1 -.-> r1[("reports/&lt;company&gt;.md")]
     t2 -.-> r2[("reports/&lt;interviewer&gt;.md")]
-    t4 -.->|finished| r3[("reports/&lt;company&gt;<br/>interview feedback.md")]
     t4 -.->|quit| r4[("reports/Questions.md")]
 ```
 
@@ -59,7 +58,7 @@ sequenceDiagram
             Note over You,I: interview stops, questions saved to reports/Questions.md
         end
     end
-    Note over I: transcript saved to reports/#lt;company#gt; interview feedback.md
+    Note over You,I: all questions done, interview ends (nothing is saved)
 ```
 
 ## Setup
@@ -113,7 +112,6 @@ Everything is saved in `reports/`:
 |------|----------|
 | `<company>.md` | Company research |
 | `<interviewer>.md` | Interviewer research |
-| `<company> interview feedback.md` | Full transcript with feedback. Only written if you finish the interview. |
 | `Questions.md` | All the generated questions. Only written if you `quit`. |
 
 ## Configuration
